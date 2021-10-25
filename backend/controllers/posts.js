@@ -111,3 +111,15 @@ exports.deletePost = (req, res, next) => {
     .catch(error => res.status(400).json({ error: "Pas de publication correspondante.", error: error }))
 
 };
+
+//Fontion qui gère la logique métier de la route GET (récupération d'une sauce spécifique)
+// exports.likeOrDislikeSauce = (req, res, next) => {
+//     const Posts = db.Posts;
+//     Posts.findOne({ _id: req.params.id })
+//       .then(sauce => {
+//         sauce.likeOrDislike(req.body.like, req.user._id)
+//         sauce.save()
+//         .then(() => res.status(201).json({message: 'Avis enregistrée !'}))
+//         .catch(error => res.status(400).json({ error }));
+//       });
+//     }

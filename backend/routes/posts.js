@@ -12,6 +12,7 @@ router.get('/', auth, postCtrl.getAllPosts);
 router.post('/', auth, multer, postCtrl.createPost);
 router.delete('/:id', auth, postCtrl.deletePost);
 router.get('/:id', postCtrl.getOnePost);
+// router.post('/:id/like', auth, posts.likeOrDislikeSauce);
 
 
 module.exports = router;
