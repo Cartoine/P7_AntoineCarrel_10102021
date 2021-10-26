@@ -316,110 +316,19 @@ export default {
     right: 1;
     left: 0;
 }
-/* #posts-box{
-    background-color: cadetblue;
-    display: flex;
-    flex-direction: row-reverse;
-} */
-    /* .commentaire {
-        text-align: center;
-    }
-    .comment-zone {
-        text-align: center;
-        display: flex;
-        align-content: center;
-        align-items: center;
-    }
-    .photo-user-comment {
-        max-height: 30px;
-        max-width: 30px;
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        margin: 5px 15px 0 15px;
-    }
-    .text-comment {
-        width: 400px;
-        height: 25px;
-        padding-top: 3px;
-        text-align: center;
-        border-radius: 10px;
-        margin: 0 0 0 10px;
-    }
-    .name {
-        font-size: 1.5rem;
-    }
-    .comment-content {
-        text-align: center;
-        margin-top: 15px;
-        width: 450px;
-    }
-    .btn-post {
-        padding: 3px 10px;
-    }
-    .comment {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin: 30px 0;
-        padding-bottom: 30px;
-    }
-    .delete-post {
-        text-align: end;
-        padding-right: 10px;
-        font-size: 1.5rem;
-    }
-    .delete {
-        text-align: end;
-        padding: 0 5px 5px 0;
-    }
-    .last-comment  {
-        display: flex;
-    }
-    #last-comment {
-        width: 90%;
-        margin: 0 0 20px 28px;
-        background-color: #b1a7a6;
-        border-radius: 10px;
-    }
-    #last-comment {
-        background-color: #ffffff;
-    } */
-    /* @media screen and (max-width: 568px) {
-        .delete {
-            padding: 0 7px 5px 0;
-        }
-        .user-comment {
-            width: 100%;
-        }
-        .name {
-            font-size: 1rem;
-            padding: 7px 0 0 0;
-        }
-        .comment-content {
-            width: 100%;
-        }
-        .text-comment {
-            width: 220px;
-            margin: 10px 0 0 0;
-        }
-        .photo-user-comment {
-            margin: 5px 7px 0 5px;
-        }
-        #last-comment {
-            margin: 10px 7px 0 7px;
-            width: 95%;
-        }
-        .last-comment {
-            margin-bottom: 15px;
-            border-bottom: #e2e2e2 solid;
-        }
-        .comment {
+@media screen and (max-width: 875px){
+        .commentScroll{
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            background-color: tomato;
         }
-        .btn-post {
-            margin: 15px 0 0 0;
+        .postContainer {
+            /* background-color: turquoise; */
         }
-    } */
+
+        
+    }
 </style>

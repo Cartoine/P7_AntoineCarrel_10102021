@@ -102,7 +102,7 @@ export default {
 <style>
 .post{
     margin: 10px;
-    width: 90%;
+    /* width: 90%; */
     display: flex;
     justify-content: center;
     border-radius: 15px;
@@ -185,6 +185,23 @@ export default {
     margin-right: 20px;
 }
 
+@media screen and (max-width: 875px){
+    
+    .imagePost {
+        max-width: 100%;
+        width: 100%;
+    }
+    .post{
+        margin: 10px;
+        max-width: 100%;
+        display: block;
+        justify-content: center;
+        border-radius: 15px;
+        background-color: #fff;
+        padding: 20px;
+    }
+    
+}
 /* .likeContainer p{
     width: 40%;
     text-align: center;

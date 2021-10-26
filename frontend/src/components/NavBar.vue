@@ -130,55 +130,17 @@ export default {
 #nav-info {
     flex-grow: 1;
 }
-    /* body, * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Texturina', serif;
-    }
-    #nav {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    #logo-groupomania {
-        max-width: 350px;
-        max-height: 200px;
-        width: 100%;
-        height: 100%;
-    }
-    .navbar-user {
-        height: 100px;
-
-        padding: 0 20px;
-        color: #d10d0d;
-
-    }
-    .menu {
-        color: #ffffff;
-        text-decoration: none;
-        padding: 0 10px;
-        line-height: 100px;
-    }
-    #list {
-        display: flex;
-        flex-direction: row;
-        list-style-type: none;
-        justify-content: center;
-    }
-    @media screen and (max-width: 568px) {
+  
+    @media screen and (max-width: 875px){
+        .logo{
+            width: 30%;
+        }
         #logo-groupomania {
-            margin: 0px;
+            width: 100%;
         }
-        .navbar-user {
-            height: 40px;
-            background-color: #FD2D01;
-        }
-        .menu {
-            color: red;
-            font-size: 0.6rem;
-            line-height: 40px;
-        }
-        #list li {
-            height: 50px;
-        }
-    } */
+        #navLink a {
+            margin-left: 10px;
+            margin-right: 10px;
+}
+    }
 </style>

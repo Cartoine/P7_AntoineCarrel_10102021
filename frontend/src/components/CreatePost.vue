@@ -13,7 +13,7 @@
                 <textarea aria-label="Contenu texte d'un post" v-model="postContent.content" placeholder="Que voulez-vous dire ?" class="text"></textarea>
                 <p id="maxCarateres">⚠️ Max 255 caracteres ⚠️ </p>
             </div>
-            <div>
+            <div class="containeurUnderText">
                 <label>
                     <div role="button" aria-label="Téléchargement d'un fichier">
                         <span v-if="postContent.attachments">Fichier séléctionné : {{postContent.attachments.name}}</span>
@@ -21,7 +21,7 @@
                     </div>
                     <input class="upload" type="file" ref="photo" v-on:change="handleFileUpload()"/>
                 </label>
-                <div>
+                <div class="publishBtn">
                     <input class="publish" type="submit" value="Publier" aria-label="Publication d'un post" v-on:click="loadAllPosts()"/>
                 </div>
             </div>
@@ -164,7 +164,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
+   /* background-color: turquoise; */
 }
 
 textarea{
@@ -201,74 +201,36 @@ textarea{
     background-color: #2c3e50;
 }
 
+@media screen and (max-width: 875px){
 
-    /* #user {
+    .createPost {
+        width: 100%;
+        max-width: 90%;
+        margin-top: 10px;
+        margin-right: 0px;
+        margin-left: 0px;
+        border-radius: 10px; 
+    }
+
+    .containeurUnderText {
         display: flex;
-        justify-content: center;
-        margin: 0 0 20px 0;
-        }
-    .nom {
-        line-height: 60px;
-        padding: 0 15px;
-        font-size: 2rem;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
     }
-    #createPost {
-        text-align: center;
-        padding: 20px 0;
-        background-color: #c7c7c7;
-        border-radius: 10px;
-        width: 600px;
-        height: 200px;
-        margin-left: 650px;
-    }
-    .text {
-        width: 220px;
-        height: 30px;
-        padding-top: 3px;
-        text-align: center;
-        border-radius: 10px;
-        margin: 25px 15px 0 50px;
-    }
-    #form {
-        display: flex;
-        justify-content: center;
-    }
-    .upload {
-        margin-bottom: 20px;
-        padding: 5px;
-    }
-    .publier {
-        padding: 0 5px 3px 5px;
-    }
-    @media screen and (max-width: 568px) {
-        #createPost {
-            margin: 0 15px 30px 15px;
-            padding: 0 0 15px 0;
-            height: 100%;
-            width: 90%;
-            background-color: #c7c7c7;
-            
-        }
-        .nom {
-            font-size: 1rem;
-        }
-        #user {
-            margin: 0;
-        }
-        #form {
-            display: flex;
-            flex-direction: column;
-        }
-        #user img {
-            width: 40px;
-            height: 40px;
-            margin-top: 7px;
-        }
-        .text {
-            margin: 0;
-        }
-        .upload {
-            margin: 0;
-        }
-    } */
+
+
+/* textarea{
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px inset rgba(44,62,80,0.12);
+    border-radius: 20px;
+    max-width: 90%;
+    width: 90%;
+    height: 200px;
+    background-color: turquoise;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+} */
+}
+
 </style>
