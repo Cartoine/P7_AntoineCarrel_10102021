@@ -238,4 +238,41 @@ export default {
 .sup:hover{
   color: red;
 }
+
+@media screen and (max-width: 875px){
+      .userPicture {
+      width: 90%;
+      
+    }
+
+      .userProfilContent {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      margin: 30px;
+      border-radius: 10px;
+      border: 4px inset rgba(44,62,80,0.12);
+    }
+
+    .userInfo {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+        
+    .userInfo input {
+      margin: 10px;
+      width: 50%;
+    }
+
+    #btnContainer {
+      display: flex;
+       flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
 </style>

@@ -323,12 +323,6 @@ export default {
             align-content: center;
             align-items: center;
             flex-direction: column-reverse;
-            background-color: tomato;
-        }
-        .postContainer {
-            /* background-color: turquoise; */
-        }
-
-        
+        }        
     }
 </style>

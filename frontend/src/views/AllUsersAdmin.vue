@@ -141,5 +141,5 @@ export default {
     border: 2px inset rgba(44,62,80,0.12);
     border-radius: 20px;
     padding: 5px;
-}    
+}
 </style>

@@ -134,56 +134,10 @@ export default {
 .userDelete:hover{
     color: red;
 }
-    /* #img-profile {
-        max-width: 100px;
-        max-height: 100px;
-        width: 100%;
-        height: 100%; 
-        border-radius: 100px;
-        margin: 25px 50px 25px 25px;
-    }
-    .user-item {
-        display: flex;
-        align-items: center;
-    }
-    .permission {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-    .userDelete {
-        margin: 15px 0;
-    }
-    #divDelete {
-        text-align: center;
-    }
+   @media screen and (max-width: 875px){
     .card {
-        border-bottom: #b1a7a6 solid 1px;
-        
+    margin-left: 10%;
+    margin-right: 10%;
     }
-    @media screen and (max-width: 568px) {
-        #img-profile {
-        max-width: 70px;
-        max-height: 70px;
-        width: 100%;
-        height: 100%; 
-        border-radius: 70px;
-        margin: 5px;
-    }
-    .user-item {
-        display: flex;
-        align-items: center;
-    }
-    .permission {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-    .userDelete {
-        margin: 15px 0;
-    }
-    #divDelete {
-        text-align: center;
-    }
-} */
+}
 </style>
