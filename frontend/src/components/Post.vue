@@ -12,10 +12,10 @@
         </div>
         <div class="content">
             <img :src="postPhoto || 'http://localhost:3000/images/noImage.jpg' " class="imagePost">
-            <div class="likeContainer">
+            <!-- <div class="likeContainer">
                 <p @click="likes+=1" class="like">like 👍 <span> {{likes}}</span></p>
                 <p @click="dislikes+=1">dislike 🖕 <span>{{ dislikes }}</span></p>
-            </div>
+            </div> -->
             <p> {{ content }}</p>
         </div>
         <slot name="Comments"></slot>
@@ -33,29 +33,30 @@ export default {
     // components : {
     //     VueLikeDislikeButtons
     // },
-    data() {
-        return {
+    
+    // data() {
+    //     return {
 
-            likes: 0,
-            dislikes: 0,
-        }
-    },
-    mounted() {
+    //         likes: 0,
+    //         dislikes: 0,
+    //     }
+    // },
+    // mounted() {
 
-        if(localStorage.likes)
-        this.likes = parseInt(localStorage.getItem('likes')) + 0;
+    //     if(localStorage.likes)
+    //     this.likes = parseInt(localStorage.getItem('likes')) + 0;
         
-        if(localStorage.dislikes)
-        this.dislikes = parseInt(localStorage.getItem('dislikes')) + 0
-    },
-    watch:{
-        likes(newLikes) {
-            localStorage.likes = newLikes;
-        },
-        dislikes(newDislikes) {
-            localStorage.dislikes = newDislikes;
-        }
-    },
+    //     if(localStorage.dislikes)
+    //     this.dislikes = parseInt(localStorage.getItem('dislikes')) + 0
+    // },
+    // watch:{
+    //     likes(newLikes) {
+    //         localStorage.likes = newLikes;
+    //     },
+    //     dislikes(newDislikes) {
+    //         localStorage.dislikes = newDislikes;
+    //     }
+    // },
 
     props: {
         subject: {
@@ -202,62 +203,4 @@ export default {
     }
     
 }
-/* .likeContainer p{
-    width: 40%;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-} */
-
-
-    /* .user h1 {
-        padding: 10px 15px 0 15px;
-        font-size: 1.5rem;
-    }
-    .date {
-        text-align: end;
-        margin-right: 10px;
-    }
-    .content {
-        margin-top: 30px;
-        text-align: center;
-    }
-    .content p {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        overflow-wrap: break-word;
-    }
-    .content img {
-        box-shadow: 5px 5px 5px rgb(212, 212, 212);
-        max-width: 500px;
-        max-height: 500px;
-        width: 100%;
-        height: 100%;
-    }
-    @media screen and (max-width: 568px) {
-        #post {
-            margin: 0 15px 30px 15px;
-            padding: 0;
-            width: 90%;
-        }
-        .user h1 {
-            font-size: 1rem;
-            padding: 0;
-        }
-        .user img {
-            width: 40px;
-            height: 40px;
-            margin: 0 10px 0 20px;
-        }
-        .user {
-            padding-top: 10px;
-            align-items: center;
-
-        }
-        .content {
-            margin: 0;
-        }
-    } */
 </style>

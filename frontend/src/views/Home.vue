@@ -20,9 +20,9 @@
                             </div>
                             <div class="user-comment">
                                 <p class="comment-content">{{ comment.content }}</p>
-                            <!-- <div class="delete" v-on:click="deleteComment(post.id, comment.id, user.id, comment.user_id)" v-if="comment.user_id == user.id || user.permission == 1"> -->
-                                <img class="delete" v-on:click="deleteComment(post.id, comment.id, user.id, comment.user_id)" v-if="comment.user_id == user.id || user.permission == 1" src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"/>
-                            <!-- </div> -->
+                                <div class="btnDelet">
+                                    <img class="delete" v-on:click="deleteComment(post.id, comment.id, user.id, comment.user_id)" v-if="comment.user_id == user.id || user.permission == 1" src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"/>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -311,10 +311,14 @@ export default {
 }
 
 .delete{
-    background-color: red;
+    
     width: 35px;
     right: 1;
     left: 0;
+}
+.btnDelet {
+    display: flex;
+    justify-content: end;
 }
 @media screen and (max-width: 875px){
         .commentScroll{
