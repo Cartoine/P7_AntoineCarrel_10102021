@@ -42,30 +42,34 @@ DB_USER=ici
 DB_MDP=et la
 ```
 
-### Intsaller les dépendances du backend
+---
 
-A la racine du dossier backend
+## Intsaller les dépendances du backend
 
-```bash
-npm install
-```
+> A la racine du dossier backend
+>
+> ```bash
+> npm install
+> ```
+>
+> ### lancer le backend
+>
+> ```bash
+> npm start
+> ```
 
-### lancer le backend
+---
 
-```bash
-npm start
-```
+## Intsaller les dépendances du front
 
-### Intsaller les dépendances du front
-
-A la racine du dossier backend
-
-```bash
-npm install
-```
-
-### lancer le backend
-
-```bash
-npm run serve
-```
+> A la racine du dossier backend
+>
+> ```bash
+> npm install
+> ```
+>
+> ### lancer le backend
+>
+> ```bash
+> npm run serve
+> ```
