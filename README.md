@@ -73,3 +73,23 @@ DB_MDP=et la
 > ```bash
 > npm run serve
 > ```
+
+---
+
+## **Vous souhaitez etre admin sur l'application ?**
+
+Rendez-vous dans le dossier **backend** ➡️ **controllers** ➡️ **user.js**
+Dans la fonction signup pazzer la permision a "true"
+⚠️ aprés votre inscription en temps qu'admin penser a repasser a "false" si non toute les futures inscrit seront admin.
+
+```js
+.then(hash => {
+            const user = new Users({
+            lastName: lastname,
+            firstName: firstname,
+            email: email,
+            password: hash,
+            permission: true,
+            photo: "http://localhost:3000/images/avatar.png"
+        });
+```
