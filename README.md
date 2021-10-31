@@ -8,7 +8,7 @@ Votre directrice, Stéphanie, invite toute l'agence à prendre un verre pour cé
 
 Le client en question est Groupomania, un groupe spécialisé dans la grande distribution et l'un des plus fidèles clients de l'agence.
 
-## Installation
+## Installation du projet
 
     Cloner le repositorie
 
@@ -16,8 +16,56 @@ Le client en question est Groupomania, un groupe spécialisé dans la grande dis
 
     dans un terminal taper la commande suivant en remplacant "user" par votre nom d'utilisateur.
 
-```js
+```bash
 mysql -u user -p
 ```
 
 ⚠️ mysql vous demandra ensuite votre mot de passe
+
+Créer une table appeler "groupomania_db" avec la commande
+
+```bash
+CREATE DATABASE groupomania_db;
+```
+
+Dans le dossier **backend** ➡️ **confing** ➡️ **config.jspn** remplacer "username" et "password" par vos identifant de connection a mysql
+
+```json
+"username": "ici",
+"password": "et la",
+```
+
+Dans le dossier **backend** ➡️ **.env** remplacer **"DB_USER"** et **"DB_MDP"** par vos identifant de connection a mysql.
+
+```env
+DB_USER=ici
+DB_MDP=et la
+```
+
+### Intsaller les dépendances du backend
+
+A la racine du dossier backend
+
+```bash
+npm install
+```
+
+### lancer le backend
+
+```bash
+npm start
+```
+
+### Intsaller les dépendances du front
+
+A la racine du dossier backend
+
+```bash
+npm install
+```
+
+### lancer le backend
+
+```bash
+npm run serve
+```
