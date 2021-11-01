@@ -15,7 +15,7 @@
                     <div id="last-comment" v-if="showComments">
                         <div class="last-comment" v-for="comment in post.Comments" v-bind:key="comment.id">
                             <div class="commentUser">
-                                <img class="photo-user-comment" :src="comment.User.photo">
+                                <img class="photo-user-comment" :src="comment.User.photo" @error="replaceByDefault">
                                 <p class="name">{{ comment.User.firstName }} {{ comment.User.lastName }}</p>
                             </div>
                             <div class="user-comment">
@@ -31,7 +31,7 @@
                 <div>
                     <form class="comment">
                         <div class="comment-zone">
-                            <img :src="user.photo" class="photo-user-comment">
+                            <img :src="user.photo" class="photo-user-comment" @error="replaceByDefault">
                             <textarea v-model="newComment.content" aria-label="Zone d'un commentaire" placeholder="Écrire votre commentaire ici" class="text-comment">
                             </textarea>
                         </div>
@@ -95,9 +95,12 @@ export default {
             .then((response) => {
                 console.log("posts", response.data);
                 this.allPosts = response.data;
+                console.log(response.status)
+            
             })
             .catch(error => {
                 console.log(error);
+                console.log('test')
             });
         axios
             .get('http://localhost:3000/api/users/me', {
@@ -200,7 +203,11 @@ export default {
                     }
                 }
             )
-        }
+        },
+        replaceByDefault(e) {
+        const img = 'http://localhost:3000/images/noImage.jpg'
+      e.target.src = img
+    }
     }
 }
 </script>

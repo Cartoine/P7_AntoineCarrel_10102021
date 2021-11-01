@@ -1,7 +1,7 @@
 <template>
     <div class="last-comments">
         <div class="comment-bloc">
-            <img class="user-photo-comment userInfo" :src="commentUserPhoto">
+            <img class="user-photo-comment userInfo" :src="commentUserPhoto" @error="replaceByDefault">
             <p class="user-name">{{ commentFirstName }} {{ commentLastName }}</p>
             <div class="comment-area">
                 <p aria-label="Zone de texte d'un commentaire">{{ commentContent }}</p>
@@ -13,6 +13,12 @@
 
 <script>
 export default {
+     methods: {
+        replaceByDefault(e) {
+        const img = 'http://localhost:3000/images/noImage.jpg'
+      e.target.src = img
+    }
+  },
     name: 'Comment',
     props: {
         commentFirstName: {

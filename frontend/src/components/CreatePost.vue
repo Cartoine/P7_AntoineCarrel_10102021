@@ -3,7 +3,7 @@
         <div>
             <h1>Ecrire un post</h1>
         <div id="user">
-            <img :src="user.photo">
+            <img :src="user.photo"  @error="replaceByDefault">
             <div class="name">
                 <p>{{ user.firstName }} {{ user.lastName }}</p>
             </div>
@@ -111,6 +111,7 @@ export default {
             } else {
                 return false;
             }
+            
         },
         uploadImage() {
             console.log('Image Téléchargée !')
@@ -121,6 +122,11 @@ export default {
         handleFileUpload(){
         this.postContent.attachments = this.$refs.photo.files[0];
         },
+         
+        replaceByDefault(e) {
+        const img = 'http://localhost:3000/images/noImage.jpg'
+      e.target.src = img
+    }
     },
 }
 </script>

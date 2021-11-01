@@ -3,7 +3,7 @@
     <div>
         <div class="userInfo">
             <div class="userTitle">
-                <img :src="userPhoto">
+                <img :src="userPhoto" @error="replaceByDefault">
                 <h1> {{ firstName }} {{ lastName }} </h1>
             </div> 
             <div class="date">
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="content">
-            <img :src="postPhoto || 'http://localhost:3000/images/noImage.jpg' " class="imagePost">
+            <img :src="postPhoto || 'http://localhost:3000/images/noImage.jpg' " @error="replaceByDefault" class="imagePost">
             <!-- <div class="likeContainer">
                 <p @click="likes+=1" class="like">like 👍 <span> {{likes}}</span></p>
                 <p @click="dislikes+=1">dislike 🖕 <span>{{ dislikes }}</span></p>
@@ -28,7 +28,15 @@
 <script>
 // import VueLikeDislikeButtons from "vue-like-dislike-buttons";
 
+// import img from 'http://localhost:3000/images/noImage.jpg'
 export default {
+    methods: {
+        replaceByDefault(e) {
+        const img = 'http://localhost:3000/images/noImage.jpg'
+      e.target.src = img
+    }
+  },
+
     name: 'Post',
     // components : {
     //     VueLikeDislikeButtons

@@ -2,7 +2,7 @@
     <div class="card">
         <div>
             <div class="userItem">
-                <img id="imgProfile" :src="photo">
+                <img id="imgProfile" :src="photo" @error="replaceByDefault">
                 <div class="userName">
                     <p>{{ firstName }} {{ lastName }}</p>
                     <p>{{ email }}</p>
@@ -54,6 +54,10 @@ export default {
         },
         updateUsers(user) {
             this.$emit('user-updated', user);
+        },
+        replaceByDefault(e) {
+        const img = 'http://localhost:3000/images/noImage.jpg'
+      e.target.src = img
         }
     }
 }
