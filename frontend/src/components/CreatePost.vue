@@ -3,7 +3,7 @@
         <div>
             <h1>Ecrire un post</h1>
         <div id="user">
-            <img :src="user.photo"  @error="replaceByDefault">
+            <img :src="user.photo"  @error="replaceByDefault" alt="User picture">
             <div class="name">
                 <p>{{ user.firstName }} {{ user.lastName }}</p>
             </div>
@@ -148,6 +148,7 @@ export default {
 #user{
     display: flex;
     font-size: 16px;
+    font-weight: bold;
 
 }
 
@@ -196,7 +197,7 @@ textarea{
 .publish{
     width: 450px;
     height: 50px;
-    background-color: #42b983;
+    background-color: #428365;
     border: 2px inset rgba(44,62,80,0.12);
     border-radius: 20px;
     color: #fff;

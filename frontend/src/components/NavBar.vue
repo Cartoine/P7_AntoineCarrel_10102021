@@ -1,7 +1,7 @@
 <template>
-    <div id="nav">
+    <nav id="nav">
         <div class="logo">
-            <router-link to="/"><img src="../assets/icon-left-font-monochrome-white.svg" id="logo-groupomania"></router-link>
+            <router-link to="/"><img src="../assets/icon-left-font-monochrome-white.svg" id="logo-groupomania" alt="logo de la boite"></router-link>
         </div>
         <div id="nav-info">
             <div v-if="$route.path==='/login' || $route.path==='/signup' ? false : true" v-bind="account">
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 </template>
 
 <script>

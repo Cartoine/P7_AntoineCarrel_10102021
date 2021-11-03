@@ -6,7 +6,7 @@
             <template v-slot:Comments v-if="post.Comments !== null" class="commentZone">
                 <div class="delete-post" v-on:click="deletePost(post.id)" v-if="post.user_id == user.id || user.permission == 1">
                     <h2>supprimer la publication </h2>
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"/>
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="poubelle"/>
                 </div>
                     <h2>Tous les commentaires</h2>
                 <div class="commentaire">
@@ -15,13 +15,13 @@
                     <div id="last-comment" v-if="showComments">
                         <div class="last-comment" v-for="comment in post.Comments" v-bind:key="comment.id">
                             <div class="commentUser">
-                                <img class="photo-user-comment" :src="comment.User.photo" @error="replaceByDefault">
+                                <img class="photo-user-comment" :src="comment.User.photo" @error="replaceByDefault" alt="user picture">
                                 <p class="name">{{ comment.User.firstName }} {{ comment.User.lastName }}</p>
                             </div>
                             <div class="user-comment">
                                 <p class="comment-content">{{ comment.content }}</p>
                                 <div class="btnDelet">
-                                    <img class="delete" v-on:click="deleteComment(post.id, comment.id, user.id, comment.user_id)" v-if="comment.user_id == user.id || user.permission == 1" src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"/>
+                                    <img class="delete" v-on:click="deleteComment(post.id, comment.id, user.id, comment.user_id)" v-if="comment.user_id == user.id || user.permission == 1" src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="poubelle"/>
                                 </div>
                         </div>
                     </div>
@@ -31,8 +31,8 @@
                 <div>
                     <form class="comment">
                         <div class="comment-zone">
-                            <img :src="user.photo" class="photo-user-comment" @error="replaceByDefault">
-                            <textarea v-model="newComment.content" aria-label="Zone d'un commentaire" placeholder="Écrire votre commentaire ici" class="text-comment">
+                            <img :src="user.photo" class="photo-user-comment" @error="replaceByDefault" alt="user picture">
+                            <textarea id="commentZone" v-model="newComment.content" aria-label="Zone d'un commentaire" placeholder="Écrire votre commentaire ici" class="text-comment">
                             </textarea>
                         </div>
                         <div class="btn-comments">
@@ -173,7 +173,11 @@ export default {
             }
         },
         submitComment(postId) {
-            const comment = this.newComment;
+            const commentZone = document.getElementById('commentZone').value
+            console.log(commentZone)
+
+            if (commentZone !== "") {                
+                const comment = this.newComment;
             console.log(comment);
             axios
                 .post('http://localhost:3000/api/posts/' + postId + '/comments', 
@@ -189,6 +193,10 @@ export default {
                     console.log(error)
                     
                 })
+                } else {
+                    alert('remplire le comm')
+                    console.log('remplire le com')
+                }
         },
         deleteComment(postId, commentId, user_id1, user_id2) {
             console.log(user_id1, user_id2)
@@ -237,7 +245,7 @@ export default {
     border-radius: 20px;
     color: #fff;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 16px;
 }
 .delete-post img {
     height: 20px;
@@ -310,7 +318,7 @@ export default {
     margin-top: 20px;
     width: 450px;
     height: 50px;
-    background-color: #42b983;
+    background-color: #428365;
     border: 2px inset rgba(44,62,80,0.12);
     border-radius: 20px;
     color: #fff;

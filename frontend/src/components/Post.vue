@@ -3,15 +3,15 @@
     <div>
         <div class="userInfo">
             <div class="userTitle">
-                <img :src="userPhoto" @error="replaceByDefault">
-                <h1> {{ firstName }} {{ lastName }} </h1>
+                <img :src="userPhoto" @error="replaceByDefault" alt="User picture">
+                <h2> {{ firstName }} {{ lastName }} </h2>
             </div> 
             <div class="date">
                 <p>{{ createdAt | moment("MM/DD/YYYY") }}</p>
             </div>
         </div>
         <div class="content">
-            <img :src="postPhoto || 'http://localhost:3000/images/noImage.jpg' " @error="replaceByDefault" class="imagePost">
+            <img :src="postPhoto || 'http://localhost:3000/images/noImage.jpg' " @error="replaceByDefault" class="imagePost" alt="image du la publication">
             <!-- <div class="likeContainer">
                 <p @click="likes+=1" class="like">like 👍 <span> {{likes}}</span></p>
                 <p @click="dislikes+=1">dislike 🖕 <span>{{ dislikes }}</span></p>
@@ -128,9 +128,10 @@ export default {
     align-items: center;
     width: 100%;
 }
-.userTitle h1 {
+.userTitle h2 {
     font-size: 16px;
     margin-left: 20px;
+    font-weight: bold;
 }
 
 .userInfo img {
