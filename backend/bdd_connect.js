@@ -32,9 +32,7 @@ connection.query(
   'SELECT * FROM `Users` ',
   function(err, results, fields) {
       console.log('Voici tous les utilisateurs dans la basse de donée')
-    // console.log(results); // results contains rows returned by server
-    console.log(results); // results contains rows returned by server
-    // console.log(fields); // fields contains extra meta data about results, if available
+    console.log(results); 
   }
 );
 module.exports = connection
