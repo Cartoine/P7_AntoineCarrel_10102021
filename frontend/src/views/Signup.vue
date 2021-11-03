@@ -25,7 +25,7 @@
                     </div>
                     <button type="submit" aria-label="Inscription de l'utilisateur" @click.prevent="submitSignup" class="btn">S'inscrire</button>
                 </div>
-                            <p id="errorMessage">merci de remplire les champs</p>
+                            <p id="errorMessage">merci de remplire les  </p>
 
             </div>
         </div>
@@ -49,41 +49,96 @@ export default {
     },
     methods: {
         submitSignup() {
-            if (this.firstName !== null || this.lastName !== null || this.email !== null || this.password !== null) {
-                
+            const firstName = document.getElementById('firstName').value
+            const lastName = document.getElementById('lastName').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password-input').value;
+            const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z0-9\d@$!%*?&]{8,}$/; // Au moins une majuscule, un chiffre. Minimum 8 caractères.
+
+            // const showError = document.getElementById('errorMessage');
+
+            if(firstName == "") {
+                const showError = document.getElementById('errorMessage');
+                showError.style.display = 'block';
+                 showError.textContent = "Merci de remplire le Prénom"
+
+            }  else if (lastName == "") {
+                const showError = document.getElementById('errorMessage');
+                showError.style.display = 'block';
+                showError.textContent = "Merci de remplire le nom"
+
+            } else if (email == "" || !EMAIL_REGEX.test(email)) {
+                const showError = document.getElementById('errorMessage');
+                showError.style.display = 'block';
+                showError.textContent = "Le champ mail doit contenir un @, pas de caractére spécial "
+
+            } else if (!PASSWORD_REGEX.test(password)) {
+                const showError = document.getElementById('errorMessage');
+                showError.style.display = 'block';
+                showError.textContent = "Le mot de passe doit contenir un caractere special, 1 majuscule et minimum 8 caractères"
+
+            } else if (this.firstName !== "" || this.lastName !== "" || this.email !== "" || this.password !== "") {
+                console.log("c'est good tous les champs sont remplie")
                 axios
                     .post("http://localhost:3000/api/users/signup",
                         this.dataUser
                     )
                     .then(response => {
-                        console.log(response);
+                        console.log(`la reponse du then ${response}`);
                         this.$router.push("/login");
                     })
                     .catch(error => {
-                        console.log(error.response)
-                        let notFound = error.response.status
-                        let noData = error.response.data.error
-                        console.log(noData)
-                        
-                        //erreur champs vide
-                        if (this.firstName !== null || this.lastName !== null || this.email !== null || this.password !== null || noData == noData || notFound == 400 && error.response.data.error.errors[0].value == error.response.data.error.errors[0].value)  {
+                        let err = error
+                        console.log(err.response)
+                        const showError = document.getElementById('errorMessage');
+                        let uniqueMailError = err.response.data.error.errors[0].type
+                        console.log(err.response)
+                        console.log(err.response.status)
+                        console.log(err.response.data.error.errors[0].type)
+                        console.log(uniqueMailError)
 
-                            const showError = document.getElementById('errorMessage');
+                        if (uniqueMailError == "unique violation") {
+                            console.log('nique ta race')
                             showError.style.display = 'block';
-                             const errorText = error.response.data.error.errors[0].value
-                            showError.textContent = `${errorText} existe deja`
-                        
-                        // erreur double user
-                        } else if ( notFound == 400 && error.response.data.error.errors[0].value == error.response.data.error.errors[0].value) {
-                            
-                            const showError = document.getElementById('errorMessage')
-                            showError.style.display = 'block'
                             const errorText = error.response.data.error.errors[0].value
                             showError.textContent = `${errorText} existe deja`
+                        }
 
-                        } else if (notFound == 400) {
-                            console.log(notFound)
-                         }
+                        // CHOPER LES DIFFERENTES ERREURS DE MERDE !!!
+
+
+                    //     // console.log(`la reponse de error ${error.response}`)
+                    //     console.log(error.status)
+                    //     let notFound = error.response.status
+                    //     let noData = error.response.data.error
+                    //     // console.log(noData)
+                    //     // const erreurMail = error.response.data.value;
+                    //     // console.log(erreurMail)
+                    //     //erreur champs vide
+                    //     if (error.response.data.value === 'Le mot de passe doit comprendre une majuscule et 1 chiffre et doit être de 8 caractères minimum.') {
+                    //         showError.style.display = 'block';
+                    //         //  const errorText = error.response.data.error.errors[0].value
+                    //         showError.textContent = `mettre une adresse mail valude narvalo`
+                    //     }
+                    //     if (this.firstName == null || this.lastName == null || this.email == null || this.password == null || noData == noData || notFound == 400 && error.response.data.error.errors[0].value == error.response.data.error.errors[0].value)  {
+
+                            
+                    //         showError.style.display = 'block';
+                    //          const errorText = error.response.data.error.errors[0].value
+                    //         showError.textContent = `${errorText} existe deja`
+                        
+                    //     // erreur double user
+                    //     } else if ( notFound == 400 && error.response.data.error.errors[0].value == error.response.data.error.errors[0].value) {
+                            
+                    //         // const showError = document.getElementById('errorMessage')
+                    //         showError.style.display = 'block'
+                    //         const errorText = error.response.data.error.errors[0].value
+                    //         showError.textContent = `${errorText} existe deja`
+
+                    //     } else if (notFound == 400) {
+                    //         console.log(notFound)
+                    //      }
                         
                     })
             }
