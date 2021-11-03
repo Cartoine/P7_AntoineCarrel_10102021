@@ -110,7 +110,11 @@ export default {
                 this.user = response.data.user;
                 console.log(this.user);
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error)
+                console.log('c la')
+            
+            })
     },
     methods: {
         deletePost(id) {
@@ -149,16 +153,22 @@ export default {
                     this.allPosts = response.data;
                 })
                 .catch(error => {
-                    console.log(error);
+                    console.log(error.status);
+                    console.log('la putain de ta mere')
                 })
         },
         onSubmit() {
             let messageText = document.getElementById('post-area')._value;
-            console.log(messageText);
+            // console.log(messageText);
             if (messageText !== null) {
                 this.$router.go();
             } else {
-                alert('Remplissez le champs texte de votre post !');
+                console.log('ici')
+                const showError = document.getElementById('maxCarateres');
+                showError.style.display = "block"
+                showError.textContent = "ta publication est vide !!!"
+                                
+                // alert('Remplissez le champs texte de votre post !');
                 return false;
             }
         },
@@ -175,7 +185,10 @@ export default {
                     console.log(response);
                     this.$router.go();
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    console.log(error)
+                    
+                })
         },
         deleteComment(postId, commentId, user_id1, user_id2) {
             console.log(user_id1, user_id2)

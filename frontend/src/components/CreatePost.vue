@@ -10,7 +10,7 @@
         </div>
         <form @submit.prevent="createPost" id="form">
             <div>
-                <textarea aria-label="Contenu texte d'un post" v-model="postContent.content" placeholder="Que voulez-vous dire ?" class="text"></textarea>
+                <textarea id="post-area" aria-label="Contenu texte d'un post" v-model="postContent.content" placeholder="Que voulez-vous dire ?" class="text post-area"></textarea>
                 <p id="maxCarateres">⚠️ Max 255 caracteres ⚠️ </p>
             </div>
             <div class="containeurUnderText">
@@ -82,6 +82,7 @@ export default {
                             })
                         .catch(error => {
                             console.log(error)
+                            console.log('la putain de ta mere')
                             });
                 } else {
                     let formData = new FormData();
@@ -99,7 +100,8 @@ export default {
                             this.$router.go('/')
                             })
                         .catch(error => {
-                            console.log(error.response)
+                            console.log(error)
+                            console.log('la putain de ta mere')
                             let codeStatus = error.response.status;
                             if (codeStatus == 400) {
                                 const showError = document.getElementById('maxCarateres');
