@@ -52,10 +52,16 @@ DB_MDP=et la
 > npm install
 > ```
 >
-> ### lancer le backend
+> ### Lancer le backend
 >
 > ```bash
 > npm start
+> ```
+>
+> ### Faire la migration de la BDD
+>
+> ```bash
+> sequelize db:migrate
 > ```
 
 ---
