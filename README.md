@@ -10,7 +10,7 @@ Le client en question est Groupomania, un groupe spécialisé dans la grande dis
 
 ## Installation du projet
 
-    Cloner le repositorie
+    Cloner le repos
 
     Créer une base de donnée mySQL
 
